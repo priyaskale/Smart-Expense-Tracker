@@ -58,7 +58,7 @@ function App(){
   const notify = m => {setToast(m);setTimeout(()=>setToast(""),2500)};
   const addTx = x => {setTx(v=>[{...x,id:id(),createdAt:Date.now()},...v]);notify("Transaction added");};
   const updateTx = x => {setTx(v=>v.map(t=>t.id===x.id?x:t));notify("Transaction updated");};
-  const deleteTx = x => {setTx(v=>v.filter(t=>t.id!==x));notify("Transaction deleted");};
+  const deleteTx = x => {setTx(v=>v.filter(t=>t.id!==x.id));notify("Transaction deleted");};
   if(!user) return <Auth onLogin={u=>setUser(u)} dark={dark} setDark={setDark}/>;
   return <div className="app-shell">
     <Sidebar page={page} setPage={setPage} onLogout={()=>{setUser(null);localStorage.removeItem("set-user")}} mobile={mobile} setMobile={setMobile}/>
