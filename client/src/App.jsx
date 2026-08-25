@@ -652,6 +652,7 @@ useEffect(() => {
               budgets={budgets}
               setPage={setPage}
               loading={transactionsLoading}
+              user={user}
             />
           )}
 
@@ -1032,6 +1033,7 @@ function Dashboard({
   budgets,
   setPage,
   loading,
+  user,
 }) {
   const month = tx.filter((t) =>
     String(t.date || "").startsWith("2026-08")
@@ -1072,7 +1074,7 @@ function Dashboard({
   return (
     <>
       <PageTitle
-        title="Good morning, Priya"
+        title={`Good morning, ${(user?.name || user?.email?.split("@")[0] || "User").trim().split(/\s+/)[0]}`}
         sub="Here's your financial overview."
         action={
           <button
