@@ -806,18 +806,7 @@ function Auth({ dark, setDark }) {
         </div>
 
         <form onSubmit={submit}>
-          {signup && (
-            <label>
-              Full name
-
-              <input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Priya Kale"
-                autoComplete="name"
-              />
-            </label>
-          )}
+          {signup&&<label>Full name<input value={name} onChange={e=>setName(e.target.value)} placeholder="Enter your full name" autoComplete="name"/></label>}
 
           <label>
             Email
@@ -2746,9 +2735,7 @@ function Settings({
   setDark,
   notify,
 }) {
-  const [name, setName] = useState(
-    user.name || "Priya"
-  );
+  const [name, setName] = useState(user.name || "");
 
   const [email, setEmail] = useState(
     user.email || ""
